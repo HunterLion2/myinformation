@@ -1,0 +1,28 @@
+<div class=" m-2 w-25">
+  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="light">
+    <div class="bg-light p-4">
+      <ul>
+        <li>
+          <a href="#" class="momcategory" #momcategory (click)="openchild()">Telefon</a>
+
+          @if(isChildVisible) {
+          <ul>
+            <li id="child">
+              <a href="">İphone 17</a>
+            </li>
+          </ul>
+          }
+        </li>
+      </ul>
+    </div>
+  </div>
+  <nav class="navbar navbar-success bg-success rounded">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+</div>
