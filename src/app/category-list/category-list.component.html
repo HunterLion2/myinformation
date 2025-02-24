@@ -1,24 +1,38 @@
+
+<h2 class="m-2 fw-bold">Category List:</h2>
+
 <div class=" m-2 w-25">
   <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="light">
     <div class="bg-light p-4">
-      <ul>
-        <li>
-          <a href="#" class="momcategory" #momcategory (click)="openchild()">Telefon</a>
+      <div class="btn-group row w-100">
+        <button type="button" class="btn btn-gray-300 w-75">Telefon</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split w-25" data-bs-toggle="dropdown" aria-expanded="false" >
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">İphone 15</a></li>
+          <li><hr class="dropdown-divider"></li>
+        </ul>
+      </div>
+
+      <!-- <ul>
+        <li class="row">
+          <a href="#" class="momcategory p-2" #momcategory (click)="openchild()">Telefon</a>
 
           @if(isChildVisible) {
           <ul>
-            <li id="child">
-              <a href="">İphone 17</a>
+            <li id="child" class="row">
+              <a href="#" class="btn">İphone 17</a>
             </li>
           </ul>
           }
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
   <nav class="navbar navbar-success bg-success rounded">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
