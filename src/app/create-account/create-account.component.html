@@ -15,15 +15,18 @@
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" #input class="form-control" id="exampleInputPassword1">
         </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Check Password</label>
+          <input type="password" #inputs class="form-control" id="exampleInputPassword1">
+        </div>
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" (click)="password(inputs)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <button type="submit" class="btn btn-primary mx-1">Giriş Yap</button>
-        <a class="btn btn-outline-success" routerLink="/kayıt">Kayıt Ol</a>
+        <a class="btn btn-success" routerLink="/kayıt">Kayıt Ol</a>
       </form>
     </div>
-    <div class="col-lg-6 bg-success animate__animated animate__backInLeft" id="login-right">
+    <div class="col-lg-6 bg-primary animate__animated animate__backInLeft" id="login-right">
       <div class="row">
         <div class="col-3">
           <div id="one-ball"></div>

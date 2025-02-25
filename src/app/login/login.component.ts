@@ -3,12 +3,19 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'login',
+  standalone: true,
   imports: [
     RouterModule
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  constructor() {}
+
+  passwordsee(input: HTMLInputElement) {
+    input.type = input.type === "password" ? "text" : "password";
+  }
 
 }
