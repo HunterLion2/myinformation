@@ -3,24 +3,25 @@
 </head>
 
 
+
 <div class="container btn-gray-300 " id="login">
   <div id="login-material" class="row">
     <div class="col-lg-6 animate__animated animate__backInDown">
-      <form class="mt-4 p-2">
+      <form class="mt-4 p-2" #form="ngForm" (submit)="formhandle(form)">
         <div class="mb-3 ">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="email" class="form-control" required email ngModel name="email" id="email" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" #input class="form-control" id="exampleInputPassword1">
+          <input type="password" #input class="form-control" required ngModel minlength="7" name="password" id="password">
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <button type="submit" class="btn btn-primary mx-1">Giriş Yap</button>
-        <a class="btn btn-outline-success" routerLink="/kayıt">Kayıt Ol</a>
+        <button type="submit" class="btn btn-primary mx-1" routerLink="/main" [disabled]="form.invalid" >Giriş Yap</button>
+        <button type="submit" class="btn btn-success" routerLink="/kayıt">Kayıt Ol</button>
       </form>
     </div>
     <div class="col-lg-6 bg-success animate__animated animate__backInLeft" id="login-right">

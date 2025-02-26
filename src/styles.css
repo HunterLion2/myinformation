@@ -1,0 +1,15 @@
+.form-control.ng-invalid#password {
+  border-left: 5px solid #ff0000;
+}
+
+.form-control.ng-valid#password {
+  border-left: 5px solid #16cc25;
+}
+
+.form-control.ng-invalid#email {
+  border-left: 5px solid #ff0000;
+}
+
+.form-control.ng-valid#email {
+  border-left: 5px solid #16cc25;
+}

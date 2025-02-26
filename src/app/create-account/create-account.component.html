@@ -2,28 +2,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-
 <div class="container btn-gray-300 " id="login">
   <div id="login-material" class="row">
     <div class="col-lg-6 animate__animated animate__backInDown">
-      <form class="mt-4 p-2">
+      <form class="mt-4 p-2" #form="ngForm" (ngSubmit)="formhandle(form)">
         <div class="mb-3 ">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" required ngModel email name="email" id="email" class="form-control"
+            id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" #input class="form-control" id="exampleInputPassword1">
+          <input type="password" required ngModel password name="password" id="password" #inputs class="form-control"
+            id="exampleInputPassword1">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Check Password</label>
-          <input type="password" #inputs class="form-control" id="exampleInputPassword1">
+          <input type="password" #inputs required class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" (click)="password(inputs)" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" required (click)="password(inputs)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <a class="btn btn-success" routerLink="/kayıt">Kayıt Ol</a>
+        <button type="submit" class="btn btn-success" routerLink="/login" (click)="toggleMode()">Kayıt Ol</button>
       </form>
     </div>
     <div class="col-lg-6 bg-primary animate__animated animate__backInLeft" id="login-right">

@@ -1,6 +1,7 @@
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,14 @@ export const routes: Routes = [
   {
     path: "kayıt",
     component: CreateAccountComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "main",
+    component: AppComponent
   }
 ];
 
