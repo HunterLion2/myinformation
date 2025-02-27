@@ -2,8 +2,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-
-
 <div class="container btn-gray-300 " id="login">
   <div id="login-material" class="row">
     <div class="col-lg-6 animate__animated animate__backInDown">
@@ -14,13 +12,13 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" #input class="form-control" required ngModel minlength="7" name="password" id="password">
+          <input type="password" #input class="form-control" required ngModel name="password" id="password">
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <button type="submit" class="btn btn-primary mx-1" routerLink="/main" [disabled]="form.invalid" >Giriş Yap</button>
+        <button type="submit" class="btn btn-primary mx-1" routerLink="/main" [disabled]="form.invalid">Giriş Yap</button>
         <button type="submit" class="btn btn-success" routerLink="/kayıt">Kayıt Ol</button>
       </form>
     </div>

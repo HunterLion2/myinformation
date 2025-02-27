@@ -11,7 +11,9 @@ import { LoginResponse } from '../create-account/login-response.module';
   selector: 'login',
   imports: [RouterModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AccountService]
+
 })
 export class LoginComponent {
 

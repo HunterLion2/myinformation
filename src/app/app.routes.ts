@@ -1,12 +1,14 @@
+import { CategoryListComponent } from './category-list/category-list.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export const routes: Routes = [
   {
     path: "",
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: "kayıt",
@@ -18,7 +20,7 @@ export const routes: Routes = [
   },
   {
     path: "main",
-    component: AppComponent
+    component: NavbarComponent
   }
 ];
 
