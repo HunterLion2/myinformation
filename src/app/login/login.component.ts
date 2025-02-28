@@ -30,6 +30,10 @@ export class LoginComponent {
     input.type = input.type === "password" ? "text" : "password";
   }
 
+  closeButton() {
+    this.error = ""
+  }
+
   toggleMode() {
     this.isLoginMode = !this.isLoginMode
   }
@@ -45,9 +49,20 @@ export class LoginComponent {
       const password = form.value.password;
       let loginResponse: Observable<LoginResponse>;
 
-      if (this.isLoginMode) {
-        loginResponse = this.accountService.register(email, password);
-      }
+      loginResponse = this.accountService.register(email, password);
+
+      loginResponse.subscribe({
+        next:() => {
+          this.error = "";
+          this.router.navigate(['/main'])
+        },
+        error: (err) => {
+          this.error = err
+        }
+      })
+    }
+
+    authLogin() {
 
     }
 

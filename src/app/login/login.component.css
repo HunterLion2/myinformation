@@ -52,3 +52,12 @@
   height: 250px;
   margin-left: 65px;
 }
+
+#alert {
+  background-color: rgba(255, 255, 255, 0.568);
+  backdrop-filter: blur(4px);
+  bottom: 300px;
+  left: 200px;
+  width: 50%;
+  height: 200px;
+}

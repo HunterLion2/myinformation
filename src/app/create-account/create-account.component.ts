@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { FormsModule, NgForm} from '@angular/forms';
 import { AccountService } from '../service/account.service';
 import { LoginResponse } from './login-response.module';
 import { Router } from '@angular/router';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-create-account',
@@ -38,6 +37,7 @@ export class CreateAccountComponent {
 
     const email = form.value.email;
     const password = form.value.password;
+
     let loginResponse: Observable<LoginResponse>;
 
     loginResponse = this.accountService.signUp(email, password);

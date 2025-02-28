@@ -1,8 +1,8 @@
 export class UserModel {
   constructor(
     public email: string,
-    public password: string | number,
-    public returnSecureToken: true,
+    public id: string,
+    public _token: string,
     public _tokenExpirationDate: Date
   ) {}
 }

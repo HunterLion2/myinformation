@@ -20,7 +20,13 @@ export const routes: Routes = [
   },
   {
     path: "main",
-    component: NavbarComponent
+    loadComponent: () => import('./navbar/navbar.component').then(m => m.NavbarComponent),
+    children: [
+      {
+        path: "Kullanıcı-Ayarları",
+        loadComponent: () => import('./user-setting/user-setting.component').then(m => m.UserSettingComponent)
+      }
+    ]
   }
 ];
 

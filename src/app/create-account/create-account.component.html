@@ -16,18 +16,13 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" required ngModel password name="password" minlength="6" id="password" #inputs
-            class="form-control">
-        </div>
-        <div class="mb-3">
-          <label for="check-password" class="form-label">Check Password</label>
-          <input type="password" #inputs required class="form-control" id="check-password">
+          <input type="password" required ngModel password name="password" minlength="6" id="password" #inputs class="form-control">
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" required (click)="password(inputs)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <button type="submit" class="btn btn-success">Kayıt Ol</button>
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid" >Kayıt Ol</button>
       </form>
     </div>
     <div class="col-lg-6 bg-primary animate__animated animate__backInLeft" id="login-right">

@@ -1,5 +1,8 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <div class="container btn-gray-300 " id="login">
@@ -18,7 +21,7 @@
           <input type="checkbox" class="form-check-input" (click)="passwordsee(input)" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Parolayı Göster</label>
         </div>
-        <button type="submit" class="btn btn-primary mx-1" routerLink="/main" [disabled]="form.invalid">Giriş Yap</button>
+        <button type="submit" class="btn btn-primary mx-1" [disabled]="form.invalid">Giriş Yap</button>
         <button type="submit" class="btn btn-success" routerLink="/kayıt">Kayıt Ol</button>
       </form>
     </div>
@@ -41,4 +44,10 @@
       </div>
     </div>
   </div>
+  @if(error.length > 0) {
+    <div class="alert alert- animate__animated animate__rubberBand mt fs-2 p-3" id="alert" role="alert">
+      <button class="btn btn-success" (click)="closeButton()"><i class="fa-solid fa-circle-xmark"></i></button>
+      <h3 class="text-center text-bolder">{{ error }}</h3>
+    </div>
+    }
 </div>

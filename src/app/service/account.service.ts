@@ -21,18 +21,39 @@ export class AccountService {
   // Create-account.component'in
 
   // Burası Kayıt Bölümü
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string,) {
     return this.http.post<LoginResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + this.api, {
       email: email,
       password: password,
-      returnSecureToken: true
+      returnSecureToken: true,
     }).pipe(
       tap(response => {
-
+        console.log(response)
       }),
       catchError(this.handleError)
     )
   }
+
+  logout() {
+    this.user.next(null);
+    localStorage.removeItem("user")
+  }
+
+  autoLogin() {
+    if(localStorage.getItem("user") == null) {
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+    const loadedUser = new UserModel(user.email, user.id, user._token, new Date (user._tokenExpirationDate));
+
+    if(loadedUser._token) {
+      this.user.next(loadedUser);
+    }
+
+  }
+
 
   // Burası da Giriş Bölümü
   register(email: string, password: string) {
@@ -42,14 +63,14 @@ export class AccountService {
       returnSecureToken: true // ++
     }).pipe(
       tap(result => {
-        console.log(result['email'])
+        this.handleLogin(result.email, result.localId, result.idToken, result.expiresIn);
       }),
       catchError(this.handleError)
     )
   }
 
   private handleError(err: HttpErrorResponse) {
-    let message = "hata oluştu (Şifrenizi 6 Karakter'den Küçük Yazmayın)"
+    let message = "hata oluştu"
 
     if (err.error.error) {
       switch (err.error.error.message) {
@@ -65,10 +86,27 @@ export class AccountService {
         case "INVALID_PASSWORD":
           message = "Hatalı Parola"
           break;
-
+        case "INVALID_LOGIN_CREDENTIALS":
+          message = "Giriş Bilgileri Hatalı"
+          break;
       }
     }
     return throwError(() => message)
+  }
+
+  private handleLogin(email: string, id: string, token: string, expiresIn: string) {
+    const tokenExpirationDate = new Date(new Date().getTime() + (+expiresIn * 1000));
+
+    const user = new UserModel(
+      email,
+      id,
+      token,
+      tokenExpirationDate
+    );
+
+    this.user.next(user);
+
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
 }
