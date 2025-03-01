@@ -21,6 +21,8 @@ export class NavbarComponent {
   ) {
     if(localStorage.getItem("user") != null) {
       this.route.navigate(['/main'])
+    } else {
+      this.route.navigate(['/login'])
     }
   }
 

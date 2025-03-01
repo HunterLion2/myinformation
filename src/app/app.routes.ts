@@ -25,6 +25,14 @@ export const routes: Routes = [
       {
         path: "Kullanıcı-Ayarları",
         loadComponent: () => import('./user-setting/user-setting.component').then(m => m.UserSettingComponent)
+      },
+      {
+        path: "Ürün-Ekleme",
+        loadComponent: () => import('./products-create/products-create.component').then(m => m.ProductsCreateComponent)
+      },
+      {
+        path: "Açıklama",
+        loadComponent: () => import('./description/description.component').then(m => m.DescriptionComponent)
       }
     ]
   }

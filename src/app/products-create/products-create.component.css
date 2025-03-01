@@ -1,0 +1,14 @@
+.card {
+  margin-top: 50px;
+  border: 2px solid #198754;
+  padding: 15px;
+  background-color: rgb(255, 252, 248);
+  border-radius: 15px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.creat-head {
+  padding: 15px;
+}
+
