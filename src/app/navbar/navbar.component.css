@@ -13,6 +13,13 @@
   font-style: normal;
 }
 
+.main-icon{
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 .description {
   margin-top: 200px;
   margin-left: 100px;

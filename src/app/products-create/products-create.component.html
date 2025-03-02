@@ -4,21 +4,32 @@
       <div class="creat-head">
         <h1>Ürün Ekleme</h1>
         <hr>
-        <form action="">
+        <form #Form="ngForm" (submit)="getProduct(Form)">
           <div class="row">
-            <div class="col-5">
+            <div class="col-4">
+              <img [src]="imageSrc" class="img-fluid rounded" width="330" height="330">
               <div class="input-group mb-3 mt-2">
-                <img src="../../../public/Ekran görüntüsü 2022-08-29 190449.png" alt="">
-                <label class="input-group-text" for="inputGroupFile01">Resim Ekleme</label>
-                <input type="file" class="form-control" id="inputGroupFile01">
+                <label class="input-group-text" for="image">Resim Ekleme</label>
+                <input type="file" class="form-control" id="image" name="image" required (change)="imageadd($event)">
               </div>
             </div>
-            <div class="col-7">
+            <div class="col-8">
               <div class="input-group mb-3 mt-2">
-                <label class="input-group-text" for="product-name">Ürün Adı</label>
-                <input type="text" class="form-control" id="product-name">
+                <label class="input-group-text" for="name">Ürün Adı</label>
+                <input type="text" class="form-control" required name="name" id="name" minlength="1" ngModel>
+              </div>
+              <div class="input-group mb-3 mt-2">
+                <label class="input-group-text" for="description">Açıklama</label>
+                <input type="text" class="form-control" required name="description" id="description" minlength="1" ngModel>
+              </div>
+              <div class="input-group mb-3 mt-2">
+                <label class="input-group-text" for="sellername">Satıcı İsmi</label>
+                <input type="text" class="form-control" id="sellername" name="sellername" required minlength="1" ngModel>
               </div>
             </div>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-success" [disabled]="Form.invalid">Ürünü Yayınla</button>
           </div>
         </form>
       </div>
