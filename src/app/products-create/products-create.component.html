@@ -4,7 +4,7 @@
       <div class="creat-head">
         <h1>Ürün Ekleme</h1>
         <hr>
-        <form #Form="ngForm" (submit)="getProduct(Form)">
+        <form #Form="ngForm" (submit)="getProduct(Form, $event)">
           <div class="row">
             <div class="col-4">
               <img [src]="imageSrc" class="img-fluid rounded" width="330" height="330">
@@ -25,6 +25,10 @@
               <div class="input-group mb-3 mt-2">
                 <label class="input-group-text" for="sellername">Satıcı İsmi</label>
                 <input type="text" class="form-control" id="sellername" name="sellername" required minlength="1" ngModel>
+              </div>
+              <div class="input-group mb-3 mt-2">
+                <label class="input-group-text" for="price">Fiyat</label>
+                <input type="number" class="form-control" id="price" name="price" required minlength="1" ngModel>
               </div>
             </div>
           </div>

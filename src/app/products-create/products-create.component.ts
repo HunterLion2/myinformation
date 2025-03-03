@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class ProductsCreateComponent {
 
   imageSrc: string | ArrayBuffer | null = null;
-  selectedFile: string | File | null = null;
+  selectedFile: string | null = null;
   error: string = "";
 
   constructor(
@@ -27,30 +27,34 @@ export class ProductsCreateComponent {
     const input = event.target as HTMLInputElement;
 
     if (input.files && input.files[0]) {
-      this.selectedFile = input.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.imageSrc = e.target?.result as string;
+        this.imageSrc = e.target?.result ?? null;
+        this.selectedFile = e.target?.result as string; // Dosya içeriğini string olarak saklayın
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
 
 
-  getProduct(Form: NgForm) {
+  getProduct(Form: NgForm, event: Event) {
+
+    console.log(event)
+
     if (!Form.valid) {
       return
     }
 
     const product: ProductsResponse = {
-      image: this.selectedFile ? (typeof this.selectedFile === 'string' ? this.selectedFile : '') : '',
+      image: this.selectedFile ?? '',
       name: Form.value.name,
       description: Form.value.description,
-      sellername: Form.value.sellername
-    }
+      sellername: Form.value.sellername,
+      price: Form.value.price
+    };
 
     this.productService.setProducts(product).subscribe(data => {
-      this.router.navigate(['/main'])
+      this.router.navigate(['Ürünler'])
       console.log(data)
     });
 

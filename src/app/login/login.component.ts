@@ -17,6 +17,7 @@ import { LoginResponse } from '../create-account/login-response.module';
 })
 export class LoginComponent {
 
+  token: string | null = "";
   isLoginMode: boolean = true;
   loading: boolean = false;
   error: string = ""
@@ -25,6 +26,7 @@ export class LoginComponent {
      private accountService: AccountService,
      private router: Router
   ) {}
+
 
   passwordsee(input: HTMLInputElement) {
     input.type = input.type === "password" ? "text" : "password";
@@ -49,12 +51,16 @@ export class LoginComponent {
       const password = form.value.password;
       let loginResponse: Observable<LoginResponse>;
 
+      if(email === environment.admin) {
+        localStorage.setItem("admin",email)
+      }
+
       loginResponse = this.accountService.register(email, password);
 
       loginResponse.subscribe({
         next:() => {
           this.error = "";
-          this.router.navigate(['/main'])
+          this.router.navigate(['/main/Açıklama'])
         },
         error: (err) => {
           this.error = err

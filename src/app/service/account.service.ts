@@ -36,7 +36,8 @@ export class AccountService {
 
   logout() {
     this.user.next(null);
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
+    localStorage.removeItem("admin");
   }
 
   autoLogin() {

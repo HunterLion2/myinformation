@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { guardGuard } from './guard.guard';
 
 export const routes: Routes = [
   {
@@ -28,11 +29,16 @@ export const routes: Routes = [
       },
       {
         path: "Ürün-Ekleme",
+        canActivate: [guardGuard],
         loadComponent: () => import('./products-create/products-create.component').then(m => m.ProductsCreateComponent)
       },
       {
         path: "Açıklama",
         loadComponent: () => import('./description/description.component').then(m => m.DescriptionComponent)
+      },
+      {
+        path: "Ürünler",
+        loadComponent: () => import('./products/products.component').then(m => m.ProductsComponent)
       }
     ]
   }

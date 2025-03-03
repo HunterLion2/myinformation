@@ -11,11 +11,15 @@
           <a class="nav-link active mx-2" aria-current="page" routerLink="Açıklama">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2" routerLink="" >Ürünler</a>
+          <a class="nav-link mx-2" routerLink="Ürünler" >Ürünler</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link mx-2 " routerLink="Ürün-Ekleme" >Ürün Ekleme</a>
-        </li>
+        @if(isAdmin) {
+          <li class="nav-item">
+              <a class="nav-link mx-2 " routerLink="Ürün-Ekleme"  >Ürün Ekleme</a>
+          </li>
+        }
+
+
       </ul>
       <div class="row">
         <form class="d-flex col-11" role="search">
