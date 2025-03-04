@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ProductsService } from '../service/products.service';
 import { Observable } from 'rxjs';
-import { ProductsResponse } from './products-create.module';
+import { ProductsResponse } from './products-create.model';
 import { Router } from '@angular/router';
 
 @Component({
