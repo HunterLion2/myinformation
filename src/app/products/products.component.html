@@ -6,42 +6,39 @@
 
 @if(!loading) {
   @if(products.length > 0 || noProducts) {
-      <ng-template [ngTemplateOutlet]="productList" [ngTemplateOutletContext]="{productsas: products}"></ng-template>
+    <ng-template [ngTemplateOutlet]="productList" [ngTemplateOutletContext]="{productsas: products}"></ng-template>
   }
 }
 
-
-
 <ng-template #productList let-products="productsas">
   <div *ngFor="let product of products">
-      @if(product.isActive) {
-        <div class="card mb-3 p-1">
-          <div class="row">
-              <div class="col-3">
-                  <!-- <img src="assets/images/{{ product.imageUrl }}" alt="" class="img-fluid rounded-start"> -->
-              </div>
-              <div class="col-9">
-                  <div class="card-body">
-                      <h5 class="card-title"> {{ product.name }} </h5>
-                      <!-- <a routerLink="/products/{{ product.id }}" class="btn btn-primary"> Ürün Detay </a> -->
-                  </div>
-              </div>
+    @if(product) {
+    <div class="card mb-3 p-1">
+      <div class="row">
+        <div class="col-3">
+          <!-- <img src="assets/images/{{ product.imageUrl }}" alt="" class="img-fluid rounded-start"> -->
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <h5 class="card-title"> {{ product.name }} </h5>
+            <p class="card-text">{{ product.price }}</p>
           </div>
         </div>
-      }
+      </div>
+    </div>
+    }
   </div>
 </ng-template>
 
 
 <ng-template #noProducts>
   <div class="alert alert-warning">
-      No Products
+    No Products
   </div>
 </ng-template>
 
-
-<div class="spinner-border text-primary" role="status" id="loading">
-  <span class="visually-hidden">Loading...</span>
-</div>
-
-
+@if(loading) {
+  <div class="spinner-border text-primary" role="status" style="margin-top: 350px; margin-left: 950px; font-size: 25px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+}
